@@ -1,17 +1,35 @@
 # Dependencies
 node_modules/
 
-# Playwright output
-test-results/
-playwright-report/
-blob-report/
-playwright/.cache/
+# Expo
+.expo/
+.expo-shared/
+dist/
+web-build/
 
-# Downloaded traces and error files
-*.zip
-error-context*.md
+# Native builds
+android/
+ios/
+*.apk
+*.aab
+*.ipa
 
-# Environment and OS files
-.env
+# Debug logs
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS / Windows junk
 .DS_Store
 Thumbs.db
+
+# Secrets - never upload these
+.env
+.env.*
+google-services.json
+GoogleService-Info.plist
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
