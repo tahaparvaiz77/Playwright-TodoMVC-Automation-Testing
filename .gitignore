@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Playwright output
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# Downloaded traces and error files
+*.zip
+error-context*.md
+
+# Environment and OS files
+.env
+.DS_Store
+Thumbs.db

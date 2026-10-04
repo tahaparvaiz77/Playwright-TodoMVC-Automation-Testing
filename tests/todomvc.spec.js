@@ -1,0 +1,33 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://todomvc.com/examples/react/dist/');
+  await page.getByTestId('text-input').click();
+  await page.getByTestId('text-input').fill('go to uni');
+  await page.getByTestId('text-input').press('Enter');
+  await page.getByTestId('text-input').fill('attemp a quiz');
+  await page.getByTestId('text-input').press('Enter');
+  await page.getByTestId('text-input').fill('submit it');
+  await page.getByTestId('text-input').press('Enter');
+  await page.getByTestId('text-input').fill('return from uni');
+  await page.getByTestId('text-input').press('Enter');
+  await page.getByRole('listitem').filter({ hasText: 'go to uni' }).getByTestId('todo-item-toggle').check();
+  await page.getByRole('listitem').filter({ hasText: 'attemp a quiz' }).getByTestId('todo-item-toggle').check();
+  await page.getByRole('link', { name: 'Completed' }).click();
+  await page.getByRole('link', { name: 'All' }).click();
+  await page.getByRole('listitem').filter({ hasText: 'submit it' }).getByTestId('todo-item-toggle').check();
+  await page.getByRole('link', { name: 'Completed' }).click();
+  await page.getByRole('link', { name: 'Active' }).click();
+  await page.getByRole('link', { name: 'All' }).click();
+  await page.getByTestId('text-input').click();
+  await page.getByTestId('footer-navigation').click();
+  await page.getByRole('link', { name: 'Active' }).click();
+  await page.getByRole('link', { name: 'Completed' }).click();
+  await page.getByTestId('footer').click();
+  await page.getByTestId('footer').click();
+  await page.getByRole('button', { name: 'Clear completed' }).click();
+  await page.getByRole('link', { name: 'All' }).click();
+  await page.getByRole('link', { name: 'Active' }).click();
+  await page.getByRole('link', { name: 'All' }).click();
+  await expect(page.locator('.todo-list li')).toHaveCount(1);
+});
